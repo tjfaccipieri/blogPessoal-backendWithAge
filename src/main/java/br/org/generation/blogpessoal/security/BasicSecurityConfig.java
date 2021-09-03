@@ -38,7 +38,6 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 			.antMatchers("/usuarios/logar").permitAll()
 			.antMatchers("/usuarios/cadastrar").permitAll()
-			.antMatchers("/usuarios").permitAll()
 			.anyRequest().authenticated()
 			.and().httpBasic()
 			.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -46,3 +45,5 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and().csrf().disable();
 	}
 }
+
+//.antMatchers("/usuarios").permitAll()

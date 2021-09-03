@@ -36,11 +36,21 @@ public class UsuarioController {
 		return ResponseEntity.ok(usuarioRepository.findAll());
 	}
 
-	@GetMapping("/{id}")
+	/*@GetMapping("/{id}")
 	public ResponseEntity<Usuario> getById(@PathVariable long id) {
 		return usuarioRepository.findById(id)
 			.map(resp -> ResponseEntity.ok(resp))
 			.orElse(ResponseEntity.notFound().build());
+	}*/
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Usuario> getById(@PathVariable long id) {
+
+		Optional<Usuario> usuario = usuarioRepository.findById(id);
+		if (usuario.isPresent()) {
+			return ResponseEntity.ok(usuario.get());
+		}
+		return ResponseEntity.notFound().build();
 	}
 
 	@PostMapping("/logar")
