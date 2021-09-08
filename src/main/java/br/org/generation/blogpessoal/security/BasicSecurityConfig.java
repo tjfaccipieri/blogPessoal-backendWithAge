@@ -47,5 +47,3 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and().csrf().disable();
 	}
 }
-
-//.antMatchers("/usuarios").permitAll()
